@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   # validation
   validates :name, presence: true
+
+
+  TYPE = ["Doctor", "Receptionist"]
 end
