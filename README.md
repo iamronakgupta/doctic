@@ -1,24 +1,23 @@
-# README
+# Doctic
+Assignment by Markeble
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Find descrition of assignment here
+https://docs.google.com/document/d/1hyom6wsQznOZIc8ThlKZ6qTafvtAG-7xd01yh5vm-gg/edit
 
-Things you may want to cover:
+## Setup and Installation
 
-* Ruby version
+### Clone the Repository
+* `git clone git@github.com:iamronakgupta/doctic.git`
+* `cd doctic`
 
-* System dependencies
+### Run Bundle
 
-* Configuration
+* `bundle install` - install all gems
 
-* Database creation
+### Setup Postgres
+* `rails db:create`
+* `rails db:migrate`
+* `rails db:seed`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Start the Server:
+* `bin/dev` - starts rails server at 3000 port
