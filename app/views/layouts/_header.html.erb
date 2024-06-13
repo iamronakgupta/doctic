@@ -1,17 +1,17 @@
 
-<nav class="relative flex flex-wrap items-center justify-between px-4 py-4 mx-6 mt-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
-  <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+<nav class="relative flex flex-wrap items-center justify-between px-2 py-2 mx-6 mt-2 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
+  <div class="flex items-center justify-between w-full py-1 mx-auto flex-wrap-inherit">
     <nav>
       <!-- breadcrumb -->
-      <h4 class="text-2xl mb-0 font-bold text-white capitalize">Hello, <%= current_user.name %></h4>
+      <h4 class="text-xl mb-0 font-bold text-white capitalize">Hello, <%= current_user.name %></h4>
       <ol class="flex flex-wrap mr-12 bg-transparent rounded-lg sm:mr-16">
-        <li class="text-m capitalize leading-normal text-white before:text-white aria-current="page"><%=current_user.type %></li>
+        <li class="text-sm capitalize leading-normal text-white before:text-white aria-current="page"><%=current_user.type %></li>
       </ol>
     </nav>
     <% if current_page?(action: 'index') %>
-      <%= link_to "+ Add new Patient", new_patient_path, class: " px-6 py-2 text-m leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md select-none bg-150 bg-x-25 hover:shadow-xs hover:-translate-y-px" %>
+      <%= link_to "+ Add new Patient", new_patient_path, class: " px-6 py-2 text-sm leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md select-none bg-150 bg-x-25 hover:shadow-xs hover:-translate-y-px" %>
     <% end %>
-    <%= link_to "Log out", destroy_user_session_path, class: "block px-0 py-2 text-l font-semibold text-white transition-all ease-nav-brand" %>
+    <%= link_to "Log out", destroy_user_session_path, class: "block px-0 py-2 text-sm font-semibold text-white transition-all ease-nav-brand" %>
 
   </div>
 </nav>
