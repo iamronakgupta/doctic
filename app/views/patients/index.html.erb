@@ -1,5 +1,5 @@
-<div class="w-full flex -mx-3">
-<div class="ml-6 flex-none w-1/2 px-3">
+<div class="grid grid-cols-2">
+<div class=" p-3">
   <div class="relative flex flex-col min-w-0 mb-6 break-words border-0 border-transparent border-solid shadow-xl bg-slate-800  rounded-2xl bg-clip-border">
     <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
       <h6 class=" text-white">Patient table</h6>
@@ -22,22 +22,22 @@
                 <td class="p-2 align-middle bg-transparent border-b  border-white/40 whitespace-nowrap shadow-transparent">
                   <div class="flex px-2 py-1">
                     <div class="flex flex-col justify-center">
-                      <h6 class="mb-0 text-l leading-normal  text-white"><%= patient.name %></h6>
-                      <p class="mb-0 text-s leading-tight  text-white  opacity-80 text-slate-400"><%= patient.phone %></p>
+                      <h6 class="mb-0 text-m leading-normal  text-white"><%= patient.name %></h6>
+                      <p class="mb-0 text-xs leading-tight  text-white  opacity-80 text-slate-400"><%= patient.phone %></p>
                     </div>
                   </div>
                 </td>
                 <td class="p-2 align-middle bg-transparent border-b  border-white/40 whitespace-nowrap shadow-transparent">
-                  <p class="mb-0 text-m font-semibold leading-tight  text-white  opacity-80"><%= patient.disease.capitalize %></p>
+                  <p class="mb-0 text-sm font-semibold leading-tight  text-white  opacity-80"><%= patient.disease.capitalize %></p>
                 </td>
                 <td class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b  border-white/40 whitespace-nowrap shadow-transparent">
                   <span class="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 py-1 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"><%= active_or_inactive(patient) %></span>
                 </td>
                 <td class="p-2 text-center align-middle bg-transparent border-b  border-white/40 whitespace-nowrap shadow-transparent">
-                  <span class="text-m font-semibold leading-tight  text-white  opacity-80 text-slate-400"><%= appointment(patient) %></span>
+                  <span class="text-sm font-semibold leading-tight  text-white  opacity-80 text-slate-400"><%= appointment(patient) %></span>
                 </td>
                 <td class="p-2 align-middle bg-transparent border-b  border-white/40 whitespace-nowrap shadow-transparent">
-                  <a href="javascript:;" class="text-s font-semibold leading-tight  text-white  opacity-80 text-slate-400"> Edit </a>
+                  <a href="javascript:;" class="text-xs font-semibold leading-tight  text-white  opacity-80 text-slate-400"> Edit </a>
                 </td>
               </tr>
             <% end %>
@@ -47,18 +47,14 @@
     </div>
   </div>
 </div>
-  <div class="w-1/2 px-3 mt-0 lg:w-7/12 lg:flex-none">
-    <div class="border-black/12.5  bg-slate-800  shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
+  <div class="p-3">
+    <div class="border-black/12.5  bg-slate-800  shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border">
       <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0">
-        <h6 class="capitalize  text-white">Sales overview</h6>
-        <p class="mb-0 text-sm leading-normal  text-white  opacity-60">
-          <i class="fa fa-arrow-up text-emerald-500"></i>
-          <span class="font-semibold">4% more</span> in 2021
-        </p>
+        <h6 class="capitalize  text-white">Number of patients registered vs days</h6>
       </div>
-      <div class="flex-auto p-4">
+      <div class=" p-4">
         <div>
-          <canvas id="chart-line" height="300"></canvas>
+          <%= column_chart Patient.group(:appointment_date).count, stacked: true, library: {backgroundColor: "#fff"}%>
         </div>
       </div>
     </div>
