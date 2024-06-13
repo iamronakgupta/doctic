@@ -8,8 +8,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   #Association
-  has_many :patients, as: :receptionist
-  has_many :patients, as: :doctor
+
 
   TYPE = ["Doctor", "Receptionist"]
 end
